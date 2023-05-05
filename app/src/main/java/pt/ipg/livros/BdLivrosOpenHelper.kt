@@ -17,7 +17,9 @@ class BdLivrosOpenHelper(
      * @param db The database.
      */
     override fun onCreate(db: SQLiteDatabase?) {
-
+        requireNotNull(db)
+        TabelaCategorias(db).cria()
+        TabelaLivros(db).cria()
     }
 
     /**
