@@ -17,7 +17,6 @@ import org.junit.Before
  */
 @RunWith(AndroidJUnit4::class)
 class BdInstrumentedTest {
-
     private fun getAppContext(): Context =
         InstrumentationRegistry.getInstrumentation().targetContext
 
