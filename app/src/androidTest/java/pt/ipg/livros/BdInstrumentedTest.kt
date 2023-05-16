@@ -11,6 +11,8 @@ import org.junit.runner.RunWith
 
 import org.junit.Assert.*
 import org.junit.Before
+import java.util.Calendar
+import java.util.Date
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -108,5 +110,47 @@ class BdInstrumentedTest {
         )
 
         assert(cursorTodasCategorias.count > 1)
+    }
+
+    @Test
+    fun consegueLerLivros() {
+        val bd = getWritableDatabase()
+
+        val categoria = Categoria("Contos")
+        insereCategoria(bd, categoria)
+
+        val livro1 = Livro("Todos os Contos", categoria.id)
+        insereLivro(bd, livro1)
+
+        val dataPub = Calendar.getInstance()
+        dataPub.set(2016, 4, 1)
+
+        val livro2 = Livro("Contos de Grimm", categoria.id, "978-1473683556", dataPub)
+        insereLivro(bd, livro2)
+
+        val tabelaLivros = TabelaLivros(bd)
+
+        val cursor = tabelaLivros.consulta(
+            TabelaLivros.CAMPOS,
+            "${BaseColumns._ID}=?",
+            arrayOf(livro1.id.toString()),
+            null,
+            null,
+            null
+        )
+
+        assert(cursor.moveToNext())
+
+        val livroBD = Livro.fromCursor(cursor)
+
+        assertEquals(livro1, livroBD)
+
+        val cursorTodosLivros = tabelaLivros.consulta(
+            TabelaLivros.CAMPOS,
+            null, null, null, null,
+            TabelaLivros.CAMPO_TITULO
+        )
+
+        assert(cursorTodosLivros.count > 1)
     }
 }
