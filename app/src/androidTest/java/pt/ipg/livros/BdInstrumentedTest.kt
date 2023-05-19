@@ -12,7 +12,6 @@ import org.junit.runner.RunWith
 import org.junit.Assert.*
 import org.junit.Before
 import java.util.Calendar
-import java.util.Date
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -152,5 +151,86 @@ class BdInstrumentedTest {
         )
 
         assert(cursorTodosLivros.count > 1)
+    }
+
+    @Test
+    fun consegueAlterarCategorias() {
+        val bd = getWritableDatabase()
+
+        val categoria = Categoria("...")
+        insereCategoria(bd, categoria)
+
+        categoria.descricao = "Poesia"
+
+        val registosAlterados = TabelaCategorias(bd).altera(
+            categoria.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(categoria.id.toString())
+        )
+
+        assertEquals(1, registosAlterados)
+    }
+
+    @Test
+    fun consegueAlterarLivros() {
+        val bd = getWritableDatabase()
+
+        val categoriaJuvenil = Categoria("Literatura Infanto-juvenil")
+        insereCategoria(bd, categoriaJuvenil)
+
+        val categoriaNacional = Categoria("Literatura nacional")
+        insereCategoria(bd, categoriaNacional)
+
+        val livro = Livro("...", categoriaNacional.id)
+        insereLivro(bd, livro)
+
+        val novaDataPub = Calendar.getInstance()
+        novaDataPub.set(1968, 1, 1)
+
+        livro.idCategoria = categoriaJuvenil.id
+        livro.titulo = "Meu Pé de Laranja Lima"
+        livro.dataPublicacao = novaDataPub
+        livro.isbn = "978-972-8202-29-3"
+
+        val registosAlterados = TabelaLivros(bd).altera(
+            livro.toContentValues(),
+            "${BaseColumns._ID}=?",
+            arrayOf(livro.id.toString())
+        )
+
+        assertEquals(1, registosAlterados)
+    }
+
+    @Test
+    fun consegueApagarCategorias() {
+        val bd = getWritableDatabase()
+
+        val categoria = Categoria("...")
+        insereCategoria(bd, categoria)
+
+        val registosEliminados = TabelaCategorias(bd).elimina(
+            "${BaseColumns._ID}=?",
+            arrayOf(categoria.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
+    }
+
+    @Test
+    fun consegueApagarLivros() {
+        val bd = getWritableDatabase()
+
+        val categoria = Categoria("Programação")
+        insereCategoria(bd, categoria)
+
+        val livro = Livro("...", categoria.id)
+        insereLivro(bd, livro)
+
+        val registosEliminados = TabelaLivros(bd).elimina(
+            "${BaseColumns._ID}=?",
+            arrayOf(livro.id.toString())
+        )
+
+        assertEquals(1, registosEliminados)
     }
 }
