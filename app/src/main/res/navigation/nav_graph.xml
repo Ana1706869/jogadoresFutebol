@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/MenuPrinciapalFragment">
+    app:startDestination="@id/MenuPrincipalFragment">
 
     <fragment
-        android:id="@+id/MenuPrinciapalFragment"
+        android:id="@+id/MenuPrincipalFragment"
         android:name="pt.ipg.livros.MenuPrincipalFragment"
         android:label="@string/menu_principal_label"
         tools:layout="@layout/fragment_menu_principal">
@@ -14,6 +14,9 @@
         <action
             android:id="@+id/action_MenuPrincipalFragment_to_SobreFragment"
             app:destination="@id/SobreFragment" />
+        <action
+            android:id="@+id/action_MenuPrincipalFragment_to_ListaLivrosFragment"
+            app:destination="@id/ListaLivrosFragment" />
     </fragment>
     <fragment
         android:id="@+id/SobreFragment"
@@ -23,6 +26,15 @@
 
         <action
             android:id="@+id/action_SobreFragment_to_MenuPrinciapalFragment"
-            app:destination="@id/MenuPrinciapalFragment" />
+            app:destination="@id/MenuPrincipalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ListaLivrosFragment"
+        android:name="pt.ipg.livros.ListaLivrosFragment"
+        android:label="@string/lista_livros_label"
+        tools:layout="@layout/fragment_lista_livros">
+        <action
+            android:id="@+id/action_ListaLivrosFragment_to_MenuPrincipalFragment"
+            app:destination="@id/MenuPrincipalFragment" />
     </fragment>
 </navigation>
