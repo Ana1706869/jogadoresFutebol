@@ -11,6 +11,8 @@ import androidx.loader.content.Loader
 import androidx.recyclerview.widget.LinearLayoutManager
 import pt.ipg.livros.databinding.FragmentListaLivrosBinding
 
+private const val ID_LOADER_LIVROS = 0
+
 /**
  * A simple [Fragment] subclass.
  * Use the [ListaLivrosFragment.newInstance] factory method to
@@ -41,6 +43,9 @@ class ListaLivrosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         val adapterLivros = AdapterLivros()
         binding.recyclerViewLivros.adapter = adapterLivros
         binding.recyclerViewLivros.layoutManager = LinearLayoutManager(requireContext())
+
+        val loader = LoaderManager.getInstance(this)
+        loader.initLoader(ID_LOADER_LIVROS, null, this)
     }
 
     companion object {
