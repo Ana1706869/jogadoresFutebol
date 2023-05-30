@@ -87,7 +87,7 @@ class AdapterLivros(val fragment: ListaLivrosFragment) : RecyclerView.Adapter<Ad
      * @param position The position of the item within the adapter's data set.
      */
     override fun onBindViewHolder(holder: ViewHolderLivro, position: Int) {
-        cursor!!.move(position)
+        cursor!!.moveToPosition(position)
         holder.livro = Livro.fromCursor(cursor!!)
     }
 }
