@@ -63,10 +63,10 @@ class BdInstrumentedTest {
         val categoria = Categoria("Humor")
         insereCategoria(bd, categoria)
 
-        val livro1 = Livro("O Lixo na Minha Cabeça", categoria.id)
+        val livro1 = Livro("O Lixo na Minha Cabeça", categoria)
         insereLivro(bd, livro1)
 
-        val livro2 = Livro("Novíssimas crónicas da boca do inferno", categoria.id, "9789896711788")
+        val livro2 = Livro("Novíssimas crónicas da boca do inferno", categoria, "9789896711788")
         insereLivro(bd, livro2)
     }
 
@@ -118,20 +118,20 @@ class BdInstrumentedTest {
         val categoria = Categoria("Contos")
         insereCategoria(bd, categoria)
 
-        val livro1 = Livro("Todos os Contos", categoria.id)
+        val livro1 = Livro("Todos os Contos", categoria)
         insereLivro(bd, livro1)
 
         val dataPub = Calendar.getInstance()
         dataPub.set(2016, 4, 1)
 
-        val livro2 = Livro("Contos de Grimm", categoria.id, "978-1473683556", dataPub)
+        val livro2 = Livro("Contos de Grimm", categoria, "978-1473683556", dataPub)
         insereLivro(bd, livro2)
 
         val tabelaLivros = TabelaLivros(bd)
 
         val cursor = tabelaLivros.consulta(
             TabelaLivros.CAMPOS,
-            "${BaseColumns._ID}=?",
+            "${TabelaLivros.CAMPO_ID}=?",
             arrayOf(livro1.id.toString()),
             null,
             null,
@@ -181,13 +181,13 @@ class BdInstrumentedTest {
         val categoriaNacional = Categoria("Literatura nacional")
         insereCategoria(bd, categoriaNacional)
 
-        val livro = Livro("...", categoriaNacional.id)
+        val livro = Livro("...", categoriaNacional)
         insereLivro(bd, livro)
 
         val novaDataPub = Calendar.getInstance()
         novaDataPub.set(1968, 1, 1)
 
-        livro.idCategoria = categoriaJuvenil.id
+        livro.categoria = categoriaJuvenil
         livro.titulo = "Meu Pé de Laranja Lima"
         livro.dataPublicacao = novaDataPub
         livro.isbn = "978-972-8202-29-3"
@@ -223,7 +223,7 @@ class BdInstrumentedTest {
         val categoria = Categoria("Programação")
         insereCategoria(bd, categoria)
 
-        val livro = Livro("...", categoria.id)
+        val livro = Livro("...", categoria)
         insereLivro(bd, livro)
 
         val registosEliminados = TabelaLivros(bd).elimina(
