@@ -26,6 +26,8 @@ class ListaLivrosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     // onDestroyView.
     private val binding get() = _binding!!
 
+    var livroSelecionado : Livro? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
