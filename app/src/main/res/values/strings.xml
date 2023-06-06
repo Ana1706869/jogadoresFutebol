@@ -21,4 +21,5 @@ Noel Lopes
     <string name="adicionar">Adicionar</string>
     <string name="editar">Editar</string>
     <string name="eliminar">Eliminar</string>
+    <string name="novo_livro_label">Novo livro</string>
 </resources>
