@@ -24,7 +24,11 @@ Noel Lopes
     <string name="novo_livro_label">Novo livro</string>
     <string name="titulo">Título</string>
     <string name="categoria">Categoria</string>
-    <string name="data_publicacao">Data publicação</string>
+    <string name="data_publicacao">Data publicação (dd-mm-aaaa)</string>
     <string name="guardar">Guardar</string>
     <string name="cancelar">Cancelar</string>
+    <string name="titulo_obrigatorio">Deve preencher o título</string>
+    <string name="data_invalida">Data inválida</string>
+    <string name="livro_guardado_com_sucesso">Livro guardado com sucesso</string>
+    <string name="erro_guardar_livro">Não foi possível guardar o livro</string>
 </resources>

@@ -7,12 +7,16 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SimpleCursorAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
 import pt.ipg.livros.databinding.FragmentNovoLivroBinding
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
 
 private const val ID_LOADER_CATEGORIAS = 0
 
@@ -56,19 +60,59 @@ class NovoLivroFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
                 true
             }
             R.id.action_cancelar -> {
-                cancelar()
+                voltaListaLivros()
                 true
             }
             else -> false
         }
     }
 
-    private fun cancelar() {
+    private fun voltaListaLivros() {
         findNavController().navigate(R.id.action_novoLivroFragment_to_ListaLivrosFragment)
     }
 
     private fun guardar() {
+        val titulo = binding.editTextTitulo.text.toString()
+        if (titulo.isBlank()) {
+            binding.editTextTitulo.error = getString(R.string.titulo_obrigatorio)
+            binding.editTextTitulo.requestFocus()
+            return
+        }
 
+        val categoriaId = binding.spinnerCategorias.selectedItemId
+
+        val data: Date
+        val df = SimpleDateFormat("dd-MM-yyyy")
+        try {
+            data = df.parse(binding.editTextDataPub.text.toString())
+        } catch (e: Exception) {
+            binding.editTextDataPub.error = getString(R.string.data_invalida)
+            binding.editTextDataPub.requestFocus()
+            return
+        }
+
+        val calendario = Calendar.getInstance()
+        calendario.time = data
+
+        val livro = Livro(
+            titulo,
+            Categoria("?", categoriaId),
+            null,
+            calendario
+        )
+
+        val id = requireActivity().contentResolver.insert(
+            LivrosContentProvider.ENDERECO_LIVROS,
+            livro.toContentValues()
+        )
+
+        if (id == null) {
+            binding.editTextTitulo.error = getString(R.string.erro_guardar_livro)
+            return
+        }
+
+        Toast.makeText(requireContext(), getString(R.string.livro_guardado_com_sucesso), Toast.LENGTH_SHORT).show()
+        voltaListaLivros()
     }
 
     /**
