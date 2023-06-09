@@ -91,13 +91,15 @@ class NovoLivroFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             return
         }
 
+        val isbn = binding.editTextIsbn.text.toString()
+
         val calendario = Calendar.getInstance()
         calendario.time = data
 
         val livro = Livro(
             titulo,
             Categoria("?", categoriaId),
-            null,
+            isbn,
             calendario
         )
 
