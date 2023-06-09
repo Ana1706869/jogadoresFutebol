@@ -22,4 +22,7 @@ Noel Lopes
     <string name="editar">Editar</string>
     <string name="eliminar">Eliminar</string>
     <string name="novo_livro_label">Novo livro</string>
+    <string name="titulo">Título</string>
+    <string name="categoria">Categoria</string>
+    <string name="data_publicacao">Data publicação</string>
 </resources>
