@@ -61,6 +61,7 @@ class MainActivity : AppCompatActivity() {
 
         val opcaoProcessada = when (fragment) {
             is ListaLivrosFragment -> (fragment as ListaLivrosFragment).processaOpcaoMenu(item)
+            is NovoLivroFragment -> (fragment as NovoLivroFragment).processaOpcaoMenu(item)
             else -> false
         }
 
