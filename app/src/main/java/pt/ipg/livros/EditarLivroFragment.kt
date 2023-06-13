@@ -1,6 +1,7 @@
 package pt.ipg.livros
 
 import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import pt.ipg.livros.databinding.FragmentEditarLivroBinding
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -112,13 +114,41 @@ class EditarLivroFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         val calendario = Calendar.getInstance()
         calendario.time = data
 
-        val livro = Livro(
-            titulo,
-            Categoria("?", categoriaId),
-            isbn,
-            calendario
-        )
+        if (livro == null) {
+            val livro = Livro(
+                titulo,
+                Categoria("?", categoriaId),
+                isbn,
+                calendario
+            )
 
+            insereLivro(livro)
+        } else {
+            val livro = livro!!
+            livro.titulo = titulo
+            livro.categoria = Categoria("?", categoriaId)
+            livro.isbn = isbn
+            livro.dataPublicacao = calendario
+
+            alteraLivro(livro)
+        }
+    }
+
+    private fun alteraLivro(livro: Livro) {
+        val enderecoLivro = Uri.withAppendedPath(LivrosContentProvider.ENDERECO_LIVROS, livro.id.toString())
+        val livrosAlterados = requireActivity().contentResolver.update(enderecoLivro, livro.toContentValues(), null, null)
+
+        if (livrosAlterados == 1) {
+            Toast.makeText(requireContext(), R.string.livro_guardado_com_sucesso, Toast.LENGTH_LONG).show()
+            voltaListaLivros()
+        } else {
+            binding.editTextTitulo.error = getString(R.string.erro_guardar_livro)
+        }
+    }
+
+    private fun insereLivro(
+        livro: Livro
+    ) {
         val id = requireActivity().contentResolver.insert(
             LivrosContentProvider.ENDERECO_LIVROS,
             livro.toContentValues()
@@ -129,7 +159,12 @@ class EditarLivroFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             return
         }
 
-        Toast.makeText(requireContext(), getString(R.string.livro_guardado_com_sucesso), Toast.LENGTH_SHORT).show()
+        Toast.makeText(
+            requireContext(),
+            getString(R.string.livro_guardado_com_sucesso),
+            Toast.LENGTH_SHORT
+        ).show()
+
         voltaListaLivros()
     }
 
