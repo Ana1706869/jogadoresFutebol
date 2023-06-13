@@ -23,6 +23,7 @@ Noel Lopes
     <string name="eliminar">Eliminar</string>
     <string name="novo_livro_label">Novo livro</string>
     <string name="titulo">Título</string>
+    <string name="isbn">ISBN</string>
     <string name="categoria">Categoria</string>
     <string name="data_publicacao">Data publicação (dd-mm-aaaa)</string>
     <string name="guardar">Guardar</string>
