@@ -60,5 +60,8 @@
         <action
             android:id="@+id/action_eliminarLivroFragment_to_ListaLivrosFragment"
             app:destination="@id/ListaLivrosFragment" />
+        <argument
+            android:name="livro"
+            app:argType="pt.ipg.livros.Livro" />
     </fragment>
 </navigation>
