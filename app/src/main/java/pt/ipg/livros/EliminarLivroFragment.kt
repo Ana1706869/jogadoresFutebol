@@ -1,6 +1,7 @@
 package pt.ipg.livros
 
 import android.os.Bundle
+import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -10,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import pt.ipg.livros.databinding.FragmentEliminarLivroBinding
 
 class EliminarLivroFragment : Fragment() {
+    private lateinit var livro: Livro
     private var _binding: FragmentEliminarLivroBinding? = null
 
     // This property is only valid between onCreateView and
@@ -32,6 +34,15 @@ class EliminarLivroFragment : Fragment() {
         val activity = activity as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_eliminar
+
+        livro = EliminarLivroFragmentArgs.fromBundle(requireArguments()).livro
+
+        binding.textViewTitulo.text = livro.titulo
+        binding.textViewISBN.text = livro.isbn
+        binding.textViewCategoria.text = livro.categoria.descricao
+        if (livro.dataPublicacao != null) {
+            binding.textViewDataPub.text = DateFormat.format("yyyy-MM-dd", livro.dataPublicacao)
+        }
     }
 
     override fun onDestroyView() {

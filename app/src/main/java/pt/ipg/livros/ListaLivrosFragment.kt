@@ -173,7 +173,8 @@ class ListaLivrosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     private fun eliminarLivro() {
-
+        val acao = ListaLivrosFragmentDirections.actionListaLivrosFragmentToEliminarLivroFragment(livroSelecionado!!)
+        findNavController().navigate(acao)
     }
 
     private fun editarLivro() {
