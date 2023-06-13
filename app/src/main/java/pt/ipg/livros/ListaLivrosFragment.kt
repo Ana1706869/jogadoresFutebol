@@ -178,10 +178,12 @@ class ListaLivrosFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     private fun editarLivro() {
-
+        val acao = ListaLivrosFragmentDirections.actionListaLivrosFragmentToEditarLivroFragment(livroSelecionado!!)
+        findNavController().navigate(acao)
     }
 
     private fun adicionaLivro() {
-        findNavController().navigate(R.id.action_ListaLivrosFragment_to_novoLivroFragment)
+        val acao = ListaLivrosFragmentDirections.actionListaLivrosFragmentToEditarLivroFragment(null)
+        findNavController().navigate(acao)
     }
 }

@@ -2,6 +2,7 @@ package pt.ipg.livros
 
 import android.database.Cursor
 import android.os.Bundle
+import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -21,6 +22,7 @@ import java.util.Date
 private const val ID_LOADER_CATEGORIAS = 0
 
 class EditarLivroFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+    private var livro: Livro?= null
     private var _binding: FragmentEditarLivroBinding? = null
 
     // This property is only valid between onCreateView and
@@ -46,6 +48,20 @@ class EditarLivroFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         val activity = activity as MainActivity
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_guardar_cancelar
+
+        val livro = EditarLivroFragmentArgs.fromBundle(requireArguments()).livro
+
+        if (livro != null) {
+            binding.editTextTitulo.setText(livro.titulo)
+            binding.editTextIsbn.setText(livro.isbn)
+            if (livro.dataPublicacao != null) {
+                binding.editTextDataPub.setText(
+                    DateFormat.format("yyyy-MM-dd", livro.dataPublicacao)
+                )
+            }
+        }
+
+        this.livro = livro
     }
 
     override fun onDestroyView() {
@@ -68,7 +84,7 @@ class EditarLivroFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
     }
 
     private fun voltaListaLivros() {
-        findNavController().navigate(R.id.action_novoLivroFragment_to_ListaLivrosFragment)
+        findNavController().navigate(R.id.action_editarLivroFragment_to_ListaLivrosFragment)
     }
 
     private fun guardar() {
@@ -208,5 +224,21 @@ class EditarLivroFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
             intArrayOf(android.R.id.text1),
             0
         )
+
+        mostraCategoriaSelecionadaSpinner()
+    }
+
+    private fun mostraCategoriaSelecionadaSpinner() {
+        if (livro == null) return
+
+        val idCategoria = livro!!.categoria.id
+
+        val ultimaCategoria = binding.spinnerCategorias.count - 1
+        for (i in 0..ultimaCategoria) {
+            if (idCategoria == binding.spinnerCategorias.getItemIdAtPosition(i)) {
+                binding.spinnerCategorias.setSelection(i)
+                return
+            }
+        }
     }
 }
