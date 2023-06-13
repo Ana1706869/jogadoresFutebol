@@ -33,4 +33,6 @@ Noel Lopes
     <string name="livro_guardado_com_sucesso">Livro guardado com sucesso</string>
     <string name="erro_guardar_livro">Não foi possível guardar o livro</string>
     <string name="eliminar_livro_label">Eliminar livro</string>
+    <string name="livro_eliminado_com_sucesso">Livro eliminado com sucesso</string>
+    <string name="erro_eliminar_livro">Erro ao eliminar livro</string>
 </resources>
