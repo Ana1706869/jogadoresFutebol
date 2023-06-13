@@ -13,15 +13,15 @@ import androidx.loader.app.LoaderManager
 import androidx.loader.content.CursorLoader
 import androidx.loader.content.Loader
 import androidx.navigation.fragment.findNavController
-import pt.ipg.livros.databinding.FragmentNovoLivroBinding
+import pt.ipg.livros.databinding.FragmentEditarLivroBinding
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 
 private const val ID_LOADER_CATEGORIAS = 0
 
-class NovoLivroFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
-    private var _binding: FragmentNovoLivroBinding? = null
+class EditarLivroFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
+    private var _binding: FragmentEditarLivroBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -32,7 +32,7 @@ class NovoLivroFragment : Fragment(), LoaderManager.LoaderCallbacks<Cursor> {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentNovoLivroBinding.inflate(inflater, container, false)
+        _binding = FragmentEditarLivroBinding.inflate(inflater, container, false)
         return binding.root
 
     }

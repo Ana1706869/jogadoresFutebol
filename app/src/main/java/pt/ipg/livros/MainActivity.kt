@@ -1,7 +1,6 @@
 package pt.ipg.livros
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
 import androidx.navigation.findNavController
@@ -61,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
         val opcaoProcessada = when (fragment) {
             is ListaLivrosFragment -> (fragment as ListaLivrosFragment).processaOpcaoMenu(item)
-            is NovoLivroFragment -> (fragment as NovoLivroFragment).processaOpcaoMenu(item)
+            is EditarLivroFragment -> (fragment as EditarLivroFragment).processaOpcaoMenu(item)
             is EliminarLivroFragment -> (fragment as EliminarLivroFragment).processaOpcaoMenu(item)
             else -> false
         }
