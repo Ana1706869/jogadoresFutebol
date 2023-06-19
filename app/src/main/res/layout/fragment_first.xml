@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FirstFragment">
+
+    <Button
+        android:id="@+id/buttonSobre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margem_botoes_menu"
+        android:text="@string/sobre"
+        app:layout_constraintEnd_toEndOf="@+id/buttonPesquisa"
+        app:layout_constraintStart_toStartOf="@+id/buttonPesquisa"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPesquisa" />
+
+    <Button
+        android:id="@+id/buttonLivros"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margem_botoes_menu"
+        android:text="@string/livros"
+        app:layout_constraintEnd_toEndOf="@+id/buttonCategorias"
+        app:layout_constraintStart_toStartOf="@+id/buttonCategorias"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCategorias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/categorias"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLivros" />
+
+    <Button
+        android:id="@+id/buttonPesquisa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margem_botoes_menu"
+        android:text="@string/pesquisa"
+        app:layout_constraintEnd_toEndOf="@+id/buttonCategorias"
+        app:layout_constraintStart_toStartOf="@+id/buttonCategorias"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCategorias" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

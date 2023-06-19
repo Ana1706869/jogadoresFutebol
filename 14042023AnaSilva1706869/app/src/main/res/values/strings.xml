@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">14042023AnaSilva1706869</string>
+    <string name="nome">Nome</string>
+    <string name="telefone">Telefone</string>
+    <string name="Nome">Nome:</string>
+    <string name="Ana">Nome</string>
+    <string name="Telefone">Telefone:</string>
+    <string name="Feliz">Telefone</string>
+    <string name="e_mail">E-mail</string>
+    <string name="Email">E-mail:</string>
+    <string name="altura">Altura:</string>
+    <string name="Altura">Altura</string>
+    <string name="peso">Peso:</string>
+    <string name="Peso">Peso</string>
+    <string name="enviar">Enviar</string>
+    <string name="phone">Telefone</string>
+    <string name="phonenumber">Telefone</string>
+    <string name="Telemovel">Telefone</string>
+</resources>

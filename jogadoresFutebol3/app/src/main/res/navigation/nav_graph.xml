@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuPrincipalFragment">
+    <fragment
+        android:id="@+id/menuPrincipalFragment"
+        android:name="com.example.jogadoresfutebol.MenuPrincipalFragment"
+        android:label="fragment_menu_principal"
+        tools:layout="@layout/fragment_menu_principal" >
+        <action
+            android:id="@+id/action_menuPrincipalFragment_to_listaJogadoresFragment"
+            app:destination="@id/listaJogadoresFragment" />
+        <action
+            android:id="@+id/action_menuPrincipalFragment_to_sobreFragment"
+            app:destination="@id/sobreFragment" />
+        <action
+            android:id="@+id/action_menuPrincipalFragment_to_pesquisarFragment"
+            app:destination="@id/pesquisarFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaJogadoresFragment"
+        android:name="com.example.jogadoresfutebol.ListaJogadoresFragment"
+        android:label="fragment_lista_jogadores"
+        tools:layout="@layout/fragment_lista_jogadores" >
+        <action
+            android:id="@+id/action_listaJogadoresFragment_to_editarJogadorFragment"
+            app:destination="@id/editarJogadorFragment" />
+        <action
+            android:id="@+id/action_listaJogadoresFragment_to_eliminarJogadorFragment"
+            app:destination="@id/eliminarJogadorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sobreFragment"
+        android:name="com.example.jogadoresfutebol.SobreFragment"
+        android:label="fragment_sobre"
+        tools:layout="@layout/fragment_sobre" >
+        <action
+            android:id="@+id/action_sobreFragment_to_menuPrincipalFragment"
+            app:destination="@id/menuPrincipalFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editarJogadorFragment"
+        android:name="com.example.jogadoresfutebol.EditarJogadorFragment"
+        android:label="fragment_editar_jogador"
+        tools:layout="@layout/fragment_editar_jogador" >
+        <action
+            android:id="@+id/action_editarJogadorFragment_to_listaJogadoresFragment"
+            app:destination="@id/listaJogadoresFragment" />
+        <argument
+            android:name="jogador"
+            app:argType="com.example.jogadoresfutebol.Jogadores"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminarJogadorFragment"
+        android:name="com.example.jogadoresfutebol.EliminarJogadorFragment"
+        android:label="fragment_eliminar_jogador"
+        tools:layout="@layout/fragment_eliminar_jogador" >
+        <argument
+            android:name="jogador"
+            app:argType="com.example.jogadoresfutebol.Jogadores" />
+        <action
+            android:id="@+id/action_eliminarJogadorFragment_to_listaJogadoresFragment"
+            app:destination="@id/listaJogadoresFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaTitulosFragment"
+        android:name="com.example.jogadoresfutebol.ListaTitulosFragment"
+        android:label="fragment_lista_titulos"
+        tools:layout="@layout/fragment_lista_titulos" >
+        <action
+            android:id="@+id/action_listaTitulosFragment_to_editarTitulosFragment"
+            app:destination="@id/editarTitulosFragment" />
+        <action
+            android:id="@+id/action_listaTitulosFragment_to_eliminaTituloFragment"
+            app:destination="@id/eliminaTituloFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editarTitulosFragment"
+        android:name="com.example.jogadoresfutebol.EditarTitulosFragment"
+        android:label="fragment_editar_titulo"
+        tools:layout="@layout/fragment_editar_titulo" >
+        <argument
+            android:name="titulos"
+            app:argType="com.example.jogadoresfutebol.Titulos"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_editarTitulosFragment_to_listaJogadoresFragment"
+            app:destination="@id/listaJogadoresFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/eliminaTituloFragment"
+        android:name="com.example.jogadoresfutebol.EliminaTituloFragment"
+        android:label="fragment_eliminar_titulo"
+        tools:layout="@layout/fragment_eliminar_titulo" >
+        <action
+            android:id="@+id/action_eliminaTituloFragment_to_menuPrincipalFragment"
+            app:destination="@id/menuPrincipalFragment" />
+        <argument
+            android:name="titulo"
+            app:argType="com.example.jogadoresfutebol.Titulos" />
+    </fragment>
+    <fragment
+        android:id="@+id/pesquisarFragment"
+        android:name="com.example.jogadoresfutebol.PesquisarFragment"
+        android:label="fragment_pesquisar"
+        tools:layout="@layout/fragment_pesquisar" >
+        <action
+            android:id="@+id/action_pesquisarFragment_to_menuPrincipalFragment"
+            app:destination="@id/menuPrincipalFragment" />
+        <action
+            android:id="@+id/action_pesquisarFragment_to_mostraDadosJogadoresFragment"
+            app:destination="@id/mostraDadosJogadoresFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mostraDadosJogadoresFragment"
+        android:name="com.example.jogadoresfutebol.MostraDadosJogadoresFragment"
+        android:label="fragment_mostra_dados_jogadores"
+        tools:layout="@layout/fragment_mostra_dados_jogadores" >
+        <argument
+            android:name="jogadores"
+            app:argType="com.example.jogadoresfutebol.Jogadores" />
+        <argument
+            android:name="titulos"
+            app:argType="com.example.jogadoresfutebol.Titulos" />
+        <action
+            android:id="@+id/action_mostraDadosJogadoresFragment_to_menuPrincipalFragment"
+            app:destination="@id/menuPrincipalFragment" />
+    </fragment>
+</navigation>

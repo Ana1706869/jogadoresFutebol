@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Projeto2</string>
+    <string name="name">Name</string>
+    <string name="mensagem">Mensagem</string>
+    <string name="button">Button</string>
+    <string name="mensagem_vazia" />
+</resources>

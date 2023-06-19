@@ -1,0 +1,104 @@
+<resources>
+    <string name="app_name">JogadoresFutebol2</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="menu_principal_label">Jogadores de Futebol</string>
+    <string name="sobre_fragment_label">Sobre a Aplicação</string>
+    <string name="previous">Voltar</string>
+    <string name="sobre_app">
+Jogadores de Futebol\n
+        Liga Portuguesa\n
+        2022/2023\n\n
+Ana Silva, 1706869
+    </string>
+    <string name="sobre">Sobre</string>
+    <string name="pesquisa">Pesquisa</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Jogadores">Jogadores</string>
+    <string name="n_mero_de_t_tulos">Número de Títulos</string>
+    <string name="jogadores">Jogadores</string>
+    <string name="liga_portuguesa">Liga Portuguesa</string>
+    <string name="_2022_2023">2022/2023</string>
+    <string name="textview">TextView</string>
+    <string name="textviewDataNascimento">TextView</string>
+    <string name="text">Text</string>
+    <string name="Nacionalidade">Text</string>
+    <string name="posicao">Text</string>
+    <string name="altura">TextView</string>
+    <string name="peso">TextView</string>
+    <string name="internacionalizacoes">TextView</string>
+    <string name="golos">TextView</string>
+    <string name="adicionar">Adicionar</string>
+    <string name="editar">Editar</string>
+    <string name="eliminar">Eliminar</string>
+    <string name="novo_jogador_label">Novo jogador</string>
+    <string name="nome">Nome:</string>
+    <string name="data_de_nascimento">Data de Nascimento:</string>
+    <string name="clube">Clube:</string>
+    <string name="posi_o">Posição:</string>
+    <string name="nacionalidade">Nacionalidade:</string>
+    <string name="altura2">Altura:</string>
+    <string name="peso2">Peso:</string>
+    <string name="n_internacionliza_es">Nº internacionlizações</string>
+    <string name="golos2">Golos:</string>
+    <string name="guardar">guardar</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="id_obrigatorio">Deve preencher o número</string>
+    <string name="nome_obrigatorio">Deve preencher o nome</string>
+    <string name="data_invalida">Deve preencher a data de nascimento</string>
+    <string name="clube_obrigatorio">Deve preencher o clube</string>
+    <string name="nacionalidade_obrigatoria">Deve preencher a nacionalidade</string>
+    <string name="posicao_obrigatoria">Deve preencher a posição</string>
+    <string name="altura_obrigatoria">Deve preencher a altura</string>
+    <string name="peso_obrigatorio">Deve preencher o peso</string>
+    <string name="internacionalizacoes_obrigatorias">Deve preencher o número de internacionalizações</string>
+    <string name="golos_obrigatorios">Deve preencher os golos</string>
+    <string name="jogador_adicionado_com_sucesso">Jogador adicionado com sucesso</string>
+    <string name="erro_adicionar_jogador">Não foi possível adicionar jogador</string>
+    <string name="id">Id</string>
+    <string name="clube2">Clube</string>
+    <string name="nacionalidade2">Nacionalidade</string>
+    <string name="posicao2">Posicao</string>
+    <string name="altura3">Altura</string>
+    <string name="peso3">Peso</string>
+    <string name="internacionaliza_es2">Internacionalizações</string>
+    <string name="golos3">Golos</string>
+    <string name="nome3">Nome</string>
+    <string name="id2">Id</string>
+    <string name="textViewGolos4">TextView</string>
+    <string name="golos5">Golos</string>
+    <string name="textviewInternacionalizacoes">TextView</string>
+    <string name="internacionaliza_es">Internacionalizações</string>
+    <string name="textviewPeso">TextView</string>
+    <string name="peso4">Peso</string>
+    <string name="textviewAltura">TextView</string>
+    <string name="altura4">Altura</string>
+    <string name="textviewPosicao">TextView</string>
+    <string name="posicao4">Posição:</string>
+    <string name="textviewNome">TextView</string>
+    <string name="textViewnacionalidade">Nacionalidade:</string>
+    <string name="textviewNacionalidade2">TextView</string>
+    <string name="clube4">Clube:</string>
+    <string name="textviewDataNascimento2">TextView</string>
+    <string name="data_de_nascimento1">Data de Nascimento</string>
+    <string name="textviewNome1">TextView</string>
+    <string name="nome4">Nome:</string>
+    <string name="jogador_eliminado_com_sucesso">Jogador adicionado com sucesso</string>
+    <string name="erro_eliminar_jogador">Erro ao eliminar jogador</string>
+    <string name="campeonatos_obrigatorios">Tem de introduzir o número de campeonatos conquistados</string>
+    <string name="tacas_portugal_obrigatorias">Tem de introduzir o número de Taças de Portugal conquistadas</string>
+    <string name="tacas_liga_obrigatorias">Tem de introduzir o número de Taças da Liga conquistadas</string>
+    <string name="supertacas_obrigatorias">Tem de introduzir o número de Supertaças conquistadas</string>
+    <string name="campeonatos_continentais_selecoes_obrigatorios">Tem de introduzir o número de Campeonatos Continentais de Selecoes conquistados</string>
+    <string name="campeonatos_mundo_conquistados">Tem de introduzir o número de Campeonatos do Mundo de Seleções conquistados</string>
+    <string name="erro_adicionar_titulo">Erro ao adicionar título</string>
+    <string name="titulo_sucesso">Número de títulos adicionado com sucesso</string>
+    <string name="titulo_eliminado">Número de títulos eliminados com sucesso</string>
+    <string name="erro_eliminar_titulo">Erro ao eliminar número de títulos</string>
+    <string name="aguardar">A aguardar...</string>
+    <string name="Nenhum_resultado">Não foram encontrados resultados para a sua pesquisa</string>
+    <string name="adicionar1">adicionar</string>
+    <string name="editar1">editar</string>
+    <string name="eliminar2">eliminar</string>
+</resources>

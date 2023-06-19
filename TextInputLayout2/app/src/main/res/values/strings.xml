@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TextInputLayout2</string>
+    <string name="Número">Número</string>
+    <string name="digite_um_n_mero">Digite um número:</string>
+</resources>
