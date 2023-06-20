@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_menuPrincipalFragment_to_pesquisarFragment"
             app:destination="@id/pesquisarFragment" />
+        <action
+            android:id="@+id/action_menuPrincipalFragment_to_listaTitulosFragment"
+            app:destination="@id/listaTitulosFragment" />
     </fragment>
     <fragment
         android:id="@+id/listaJogadoresFragment"
@@ -87,20 +90,20 @@
             app:argType="com.example.jogadoresfutebol.Titulos"
             app:nullable="true" />
         <action
-            android:id="@+id/action_editarTitulosFragment_to_listaJogadoresFragment"
-            app:destination="@id/listaJogadoresFragment" />
+            android:id="@+id/action_editarTitulosFragment_to_listaTitulosFragment"
+            app:destination="@id/listaTitulosFragment" />
     </fragment>
     <fragment
         android:id="@+id/eliminaTituloFragment"
         android:name="com.example.jogadoresfutebol.EliminaTituloFragment"
         android:label="fragment_eliminar_titulo"
         tools:layout="@layout/fragment_eliminar_titulo" >
-        <action
-            android:id="@+id/action_eliminaTituloFragment_to_menuPrincipalFragment"
-            app:destination="@id/menuPrincipalFragment" />
         <argument
             android:name="titulo"
             app:argType="com.example.jogadoresfutebol.Titulos" />
+        <action
+            android:id="@+id/action_eliminaTituloFragment_to_listaTitulosFragment"
+            app:destination="@id/listaTitulosFragment" />
     </fragment>
     <fragment
         android:id="@+id/pesquisarFragment"
@@ -113,6 +116,11 @@
         <action
             android:id="@+id/action_pesquisarFragment_to_mostraDadosJogadoresFragment"
             app:destination="@id/mostraDadosJogadoresFragment" />
+        <argument
+            android:name="jogador"
+            app:argType="com.example.jogadoresfutebol.Jogadores"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/mostraDadosJogadoresFragment"
@@ -129,4 +137,7 @@
             android:id="@+id/action_mostraDadosJogadoresFragment_to_menuPrincipalFragment"
             app:destination="@id/menuPrincipalFragment" />
     </fragment>
+    <action
+        android:id="@+id/action_global_listaTitulosFragment"
+        app:destination="@id/listaTitulosFragment" />
 </navigation>

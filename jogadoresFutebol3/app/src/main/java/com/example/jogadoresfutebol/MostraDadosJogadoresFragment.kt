@@ -36,8 +36,8 @@ class MostraDadosJogadoresFragment : Fragment() {
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_mostra_jogadores
 
-        val jogador=MostraDadosJogadoresFragmentArgs.fromBundle(requireArguments()).jogador
-        val titulo =MostraDadosJogadoresFragmentArgs.fromBundle(requireArguments()).titulo
+        val jogador=MostraDadosJogadoresFragmentArgs.fromBundle(requireArguments()).jogadores
+        val titulo =MostraDadosJogadoresFragmentArgs.fromBundle(requireArguments()).titulos
 
         if (titulo != null) {
             binding.textViewCampeontosNacionais3.setText(titulo.campeonatosNacionais.toString())
@@ -82,7 +82,7 @@ class MostraDadosJogadoresFragment : Fragment() {
     }
 
     private fun voltarMenuPrincipal() {
-        findNavController().navigate(R.id.action_mostraDadosJogadoresFragment2_to_menuPrincipalFragment)
+        findNavController().navigate(R.id.action_mostraDadosJogadoresFragment_to_menuPrincipalFragment)
     }
 
 }

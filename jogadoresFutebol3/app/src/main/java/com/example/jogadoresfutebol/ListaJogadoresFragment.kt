@@ -168,12 +168,13 @@ class ListaJogadoresFragment :Fragment(), LoaderManager.LoaderCallbacks<Cursor> 
 
 
     private fun eliminarJogador() {
-
+        val acao=ListaJogadoresFragmentDirections.actionListaJogadoresFragmentToEliminarJogadorFragment(jogadorSelecionado!!)
+        findNavController().navigate(acao)
 
     }
 
     private fun editarJogador() {
-        val acao=ListaJogadoresFragmentDirections.actionListaTitulo
+        val acao=ListaJogadoresFragmentDirections.actionListaJogadoresFragmentToEditarJogadorFragment(jogadorSelecionado!!)
         findNavController().navigate(acao)
 
 

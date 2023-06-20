@@ -71,7 +71,7 @@ class EliminaTituloFragment : Fragment() {
     }
 
     private fun voltaListaTitulos() {
-        findNavController().navigate(R.id.action_eliminaTituloFragment2_to_listaTitulosFragment)
+        findNavController().navigate(R.id.action_eliminaTituloFragment_to_listaTitulosFragment)
     }
 
     private fun eliminar() {

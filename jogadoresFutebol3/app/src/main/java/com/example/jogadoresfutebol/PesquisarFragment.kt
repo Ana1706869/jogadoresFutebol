@@ -37,6 +37,8 @@ class PesquisarFragment : Fragment() {
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_pesquisar
 
+        val jogador=PesquisarFragmentArgs.fromBundle(requireArguments()).jogador
+
 
     }
 
@@ -72,7 +74,7 @@ class PesquisarFragment : Fragment() {
         if (jogadorPesquisar == jogador?.nome ?: "") {
             Toast.makeText(requireContext(), getString(R.string.aguardar), Toast.LENGTH_SHORT)
                 .show()
-            findNavController().navigate(R.id.action_pesquisarFragment_to_mostraDadosJogadoresFragment2)
+            findNavController().navigate(R.id.action_pesquisarFragment_to_mostraDadosJogadoresFragment)
         } else {
             Toast.makeText(
                 requireContext(),

@@ -47,7 +47,7 @@ class EditarTitulosFragment : Fragment() {
         activity.fragment = this
         activity.idMenuAtual = R.menu.menu_guardar_cancelar
 
-        val titulo= EditarTitulosFragmentArgs.fromBundle(requireArguments()).titulo
+        val titulo= EditarTitulosFragmentArgs.fromBundle(requireArguments()).titulos
 
         if (titulo!= null) {
             binding2.editTextId3.setText(titulo.id.toString())
